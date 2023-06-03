@@ -1,5 +1,5 @@
 ## Project Title
-# Lambda Trigger on S3 Upload using Terraform
+#     Deploy-a-web-server-on-aws-using-terraform
 
 The purpose of the project is to create a Lambda Trigger on S3 upload using Terraform. The goal is to automate the process of triggering a Lambda function whenever a file is uploaded to a specific S3 bucket.
 
