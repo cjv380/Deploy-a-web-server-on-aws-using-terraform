@@ -91,8 +91,8 @@ Provide step-by-step instructions on how to get started with your project, inclu
 
 1. Clone the repository:
    ```shell
-   git clone https://github.com/your-username/Lambda_trigger_on_S3_upload_using_Terraform.git
-   cd Lambda_trigger_on_S3_upload_using_Terraform
+   git clone https://github.com/Gris1109/Deploy-a-web-server-on-aws-using-terraform.git
+   cd Deploy-a-web-server-on-aws-using-terraform
 
 2. Configure AWS credentials:
 
@@ -101,25 +101,38 @@ Provide step-by-step instructions on how to get started with your project, inclu
 
 3. Edit configuration files:
 
-    Provide details on which files need to be edited and how to configure them for your specific project.
-    Include information on any variables or parameters that need to be set.
+    access key and secret key should be configured into the provider.tf, if aws cli is installed on the host server the default profile could be used.
+    change the user_data.sh permession to be executable using "sudo chmod +x user_data.sh"
 
 4. Deploy the infrastructure:
+    
+    terraform init, terraform plan, and terraform apply.
 
-    Explain how to use Terraform to deploy the infrastructure.
-    Include the necessary Terraform commands, such as terraform init, terraform plan, and terraform apply.
-    Provide any additional instructions specific to your project, such as setting up remote state or using Terraform workspaces.
 
 ## Usage
 
-Explain how to use your project once the infrastructure is deployed. This may include:
+Accessing the Web Server:
 
-    How to access and use the deployed resources (e.g., URLs, endpoints, credentials)
-    Instructions for interacting with the infrastructure (e.g., executing API calls, running tests)
+    Retrieve the public IP address of the EC2 instance. This information should be available in the Terraform output or in the AWS Management Console.
+    Open a web browser and enter the public IP address in the address bar.
+    If everything is configured correctly, you should be able to access your web server and view your website.
 
-Examples
+SSH into the Instance:
 
-Provide examples or use cases that demonstrate the usage of your project. Include step-by-step instructions and code snippets to guide users through specific scenarios.
+    Open a terminal or command prompt on your local machine.
+    Change directory to the location where your private key file (usually a .pem file) is stored.
+    Set the appropriate permissions for your private key file using the following command:
+
+
+    chmod 400 <private-key-file.pem>
+
+SSH into the EC2 instance using the following command, replacing <public-ip> with the public IP address of the instance and <private-key-file.pem> with the filename of your private key file:
+
+    ssh -i <private-key-file.pem> ec2-user@<public-ip>
+
+Note: The username (ec2-user) may vary depending on the Amazon Machine Image (AMI) used for your EC2 instance. For some AMIs, the username could be ubuntu, admin, or root.
+If the SSH connection is successful, you will be logged into the EC2 instance and can execute commands or perform any necessary administrative tasks.
+
 
 ## Troubleshooting
 Address common issues or errors that users may encounter and provide troubleshooting tips or solutions.
