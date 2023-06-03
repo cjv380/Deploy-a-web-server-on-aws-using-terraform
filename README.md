@@ -1,3 +1,33 @@
+## Project Title
+
+Provide a concise and descriptive title for your project.
+Overview
+
+Give a brief overview of your project, explaining its purpose and goals.
+Features
+
+List the key features and functionalities of your project.
+
+
+# Lambda Trigger on S3 Upload using Terraform
+
+This project demonstrates how to trigger a Lambda function when an S3 bucket receives an upload, using Terraform.
+
+## Prerequisites
+
+- AWS account
+- Terraform installed
+- Proper AWS permissions
+
+## Project Structure
+
+Explain the structure of your project, highlighting important directories and files. Mention the key Terraform files that users need to be aware of:
+
+    terraform/ directory: Contains the Terraform configuration files.
+    resources.tf: Defines the Terraform resources required for the project.
+    outputs.tf: Specifies the outputs that users can access after provisioning the infrastructure.
+    variables.tf (optional): Lists the input variables that can be customized by users.
+
 ## Requirements
 
 | Name | Version |
@@ -50,4 +80,62 @@ No modules.
 | <a name="output_routetable_id"></a> [routetable\_id](#output\_routetable\_id) | route table id |
 | <a name="output_subnet_id"></a> [subnet\_id](#output\_subnet\_id) | private ip(subnet) |
 | <a name="output_vpc_id"></a> [vpc\_id](#output\_vpc\_id) | vpc id |
+
+
+## Getting Started
+
+Provide step-by-step instructions on how to get started with your project, including:
+
+1. Clone the repository:
+   ```shell
+   git clone https://github.com/your-username/Lambda_trigger_on_S3_upload_using_Terraform.git
+   cd Lambda_trigger_on_S3_upload_using_Terraform
+
+2. Configure AWS credentials:
+
+    Create an AWS access key and secret key.
+    Configure the AWS CLI with your credentials.
+
+3. Edit configuration files:
+
+    Provide details on which files need to be edited and how to configure them for your specific project.
+    Include information on any variables or parameters that need to be set.
+
+4. Deploy the infrastructure:
+
+    Explain how to use Terraform to deploy the infrastructure.
+    Include the necessary Terraform commands, such as terraform init, terraform plan, and terraform apply.
+    Provide any additional instructions specific to your project, such as setting up remote state or using Terraform workspaces.
+
+## Usage
+
+Explain how to use your project once the infrastructure is deployed. This may include:
+
+    How to access and use the deployed resources (e.g., URLs, endpoints, credentials)
+    Instructions for interacting with the infrastructure (e.g., executing API calls, running tests)
+
+Examples
+
+Provide examples or use cases that demonstrate the usage of your project. Include step-by-step instructions and code snippets to guide users through specific scenarios.
+
+## Troubleshooting
+Address common issues or errors that users may encounter and provide troubleshooting tips or solutions.
+
+## Contributing
+Explain how users can contribute to your project if desired. Include information about pull requests, issue tracking, and any contribution guidelines you may have.
+
+## License
+Specify the license under which your project is distributed.
+
+## References
+Include references to relevant documentation, tutorials, or external resources that users may find helpful.
+Acknowledgments
+
+Optionally, acknowledge any individuals or resources that have contributed to the project.
+
+
+## Troubleshooting, Contributing, and License
+Include sections for troubleshooting, contributing guidelines, and information about the project's license, as needed.
+
+
 
