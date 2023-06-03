@@ -5,12 +5,12 @@ The purpose of the project is to create a Lambda Trigger on S3 upload using Terr
 
 Key Features and Functionalities:
 
-    Infrastructure as Code: The project utilizes Terraform, an infrastructure as code tool, to define and manage the AWS resources required for the Lambda trigger and S3 bucket.
-    S3 Bucket Configuration: Terraform is used to create and configure the S3 bucket, including setting up any necessary permissions, policies, and event notifications.
-    Lambda Function Configuration: Terraform is used to define the Lambda function and its associated configurations, such as runtime, memory, and timeout settings.
-    Event Trigger Configuration: The project sets up an event trigger on the S3 bucket using Terraform, ensuring that the Lambda function is invoked whenever a file is uploaded to the bucket.
-    Deployment Automation: By using Terraform, the entire infrastructure configuration can be versioned, stored in source control, and deployed consistently across different environments.
-    Scalability and Flexibility: The project can be easily extended to support additional functionality, such as processing the uploaded files, sending notifications, or integrating with other AWS services.
+Infrastructure as Code: The project utilizes Terraform, an infrastructure as code tool, to define and manage the AWS resources required for the Lambda trigger and S3 bucket.
+S3 Bucket Configuration: Terraform is used to create and configure the S3 bucket, including setting up any necessary permissions, policies, and event notifications.
+Lambda Function Configuration: Terraform is used to define the Lambda function and its associated configurations, such as runtime, memory, and timeout settings.
+Event Trigger Configuration: The project sets up an event trigger on the S3 bucket using Terraform, ensuring that the Lambda function is invoked whenever a file is uploaded to the bucket.
+Deployment Automation: By using Terraform, the entire infrastructure configuration can be versioned, stored in source control, and deployed consistently across different environments.
+Scalability and Flexibility: The project can be easily extended to support additional functionality, such as processing the uploaded files, sending notifications, or integrating with other AWS services.
 
 Overall, the project aims to simplify the process of setting up a Lambda Trigger on S3 upload by leveraging the power of Terraform's declarative syntax and automation capabilities.
 
@@ -26,10 +26,10 @@ This project demonstrates how to trigger a Lambda function when an S3 bucket rec
 
 Explain the structure of your project, highlighting important directories and files. Mention the key Terraform files that users need to be aware of:
 
-    resources.tf: Defines the Terraform resources required for the project.
-    outputs.tf: Specifies the outputs that users can access after provisioning the infrastructure.
-    variables.tf (optional): Lists the input variables that can be customized by users.
-    user.sh: runs a bash script after instance have been created
+#### resources.tf: Defines the Terraform resources required for the project.
+#### outputs.tf: Specifies the outputs that users can access after provisioning the infrastructure.
+#### variables.tf (optional): Lists the input variables that can be customized by users.
+#### user.sh: runs a bash script after instance have been created
 
 ## Requirements
 
@@ -113,15 +113,15 @@ Provide step-by-step instructions on how to get started with your project, inclu
 
 Accessing the Web Server:
 
-    Retrieve the public IP address of the EC2 instance. This information should be available in the Terraform output or in the AWS Management Console.
-    Open a web browser and enter the public IP address in the address bar.
-    If everything is configured correctly, you should be able to access your web server and view your website.
+Retrieve the public IP address of the EC2 instance. This information should be available in the Terraform output or in the AWS Management Console.
+Open a web browser and enter the public IP address in the address bar.
+If everything is configured correctly, you should be able to access your web server and view your website.
 
 SSH into the Instance:
 
-    Open a terminal or command prompt on your local machine.
-    Change directory to the location where your private key file (usually a .pem file) is stored.
-    Set the appropriate permissions for your private key file using the following command:
+Open a terminal or command prompt on your local machine.
+Change directory to the location where your private key file (usually a .pem file) is stored.
+Set the appropriate permissions for your private key file using the following command:
 
 
     chmod 400 <private-key-file.pem>
