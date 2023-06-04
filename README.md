@@ -1,20 +1,27 @@
 ## Project Title
 #     Deploy-a-web-server-on-aws-using-terraform
 
-The purpose of the project is to create a Lambda Trigger on S3 upload using Terraform. The goal is to automate the process of triggering a Lambda function whenever a file is uploaded to a specific S3 bucket.
+The "Deploy-a-web-server-on-aws-using-terraform" project focuses on automating the deployment process of a web server on AWS using Terraform. By leveraging Terraform's infrastructure as code capabilities, the project simplifies the provisioning and management of AWS resources required for hosting a web server.
 
+The main goal of the project is to provide a streamlined and scalable solution for deploying a web server on AWS. It achieves this by utilizing Terraform to define and manage the infrastructure components, such as EC2 instances, security groups, networking configurations, and other necessary resources.
+
+With the project's infrastructure as code approach, developers can easily version and reproduce the deployment across different environments. This ensures consistency and reduces the chances of errors or configuration discrepancies.
+
+Key features of the project include:
+
+Infrastructure as Code: The project utilizes Terraform to define the AWS resources required for hosting the web server. This allows for declarative and version-controlled infrastructure provisioning.
+
+Automated Deployment: By using Terraform, the project enables automated deployment of the web server infrastructure, saving time and effort for developers.
+
+Scalability and Flexibility: The project supports scalability by allowing developers to easily adjust the resources allocated to the web server as needed. Additionally, it provides flexibility to integrate with other AWS services and extend the functionality of the web server.
+
+Simplified Configuration: With Terraform, the project simplifies the configuration process by providing a centralized and standardized approach to defining the infrastructure components. This eliminates the need for manual setup and reduces the chances of configuration errors.
+
+Reproducibility: The infrastructure configurations defined in Terraform can be easily shared, versioned, and reproduced across different environments. This ensures consistency and makes the deployment process more reliable.
+
+Overall, the "Deploy-a-web-server-on-aws-using-terraform" project offers an automated and scalable solution for deploying web servers on AWS. By leveraging the power of Terraform, it simplifies the provisioning and management of AWS resources, providing a streamlined and efficient deployment process.
 Key Features and Functionalities:
 
-Infrastructure as Code: The project utilizes Terraform, an infrastructure as code tool, to define and manage the AWS resources required for the Lambda trigger and S3 bucket.
-S3 Bucket Configuration: Terraform is used to create and configure the S3 bucket, including setting up any necessary permissions, policies, and event notifications.
-Lambda Function Configuration: Terraform is used to define the Lambda function and its associated configurations, such as runtime, memory, and timeout settings.
-Event Trigger Configuration: The project sets up an event trigger on the S3 bucket using Terraform, ensuring that the Lambda function is invoked whenever a file is uploaded to the bucket.
-Deployment Automation: By using Terraform, the entire infrastructure configuration can be versioned, stored in source control, and deployed consistently across different environments.
-Scalability and Flexibility: The project can be easily extended to support additional functionality, such as processing the uploaded files, sending notifications, or integrating with other AWS services.
-
-Overall, the project aims to simplify the process of setting up a Lambda Trigger on S3 upload by leveraging the power of Terraform's declarative syntax and automation capabilities.
-
-This project demonstrates how to trigger a Lambda function when an S3 bucket receives an upload, using Terraform.
 
 ## Prerequisites
 
