@@ -1,0 +1,40 @@
+# Terraform files
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+*.tfvars
+.terraformrc
+terraform.rc
+
+# Terraform provider cache
+.terraform.lock.hcl
+
+# AWS credentials (never commit these!)
+**/.aws/*
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+
+# SSH keys
+*.pem
+*.key
+
+# Temporary files
+*.tmp
+*.temp

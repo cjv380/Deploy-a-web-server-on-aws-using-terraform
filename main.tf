@@ -1,9 +1,25 @@
+# Add this data source at the top
+data "aws_ami" "amazon_linux" {
+  most_recent = true
+  owners      = ["amazon"]
+  
+  filter {
+    name   = "name"
+    values = ["al2023-ami-*"]
+  }
+  
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
+  }
+}
+
 # Create a vpc 
 resource "aws_vpc" "terra_vpc" {
   cidr_block = "10.0.0.0/16"
 
   tags = {
-    name = "my_vpc"
+    Name = "my_vpc"  # Changed from 'name' to 'Name'
   }
 }
 
@@ -12,7 +28,7 @@ resource "aws_internet_gateway" "terra_IGW" {
   vpc_id = aws_vpc.terra_vpc.id
 
   tags = {
-    name = "my_IGW"
+    Name = "my_IGW"
   }
 }
 
@@ -21,7 +37,7 @@ resource "aws_route_table" "terra_route_table" {
   vpc_id = aws_vpc.terra_vpc.id
 
   tags = {
-    name = "my_route_table"
+    Name = "my_route_table"
   }
 }
 
@@ -39,7 +55,7 @@ resource "aws_subnet" "terra_subnet" {
   availability_zone = var.availability_zone
   
   tags = {
-    name = "my_subnet"
+    Name = "my_subnet"
   }
 }
 
@@ -61,7 +77,7 @@ resource "aws_security_group" "terra_SG" {
       from_port        = 443
       to_port          = 443
       protocol         = "tcp"
-      cidr_blocks      = ["0.0.0.0/0", aws_vpc.terra_vpc.cidr_block]
+      cidr_blocks      = ["0.0.0.0/0"]
       ipv6_cidr_blocks  = []
       prefix_list_ids   = []
       security_groups   = []
@@ -72,7 +88,7 @@ resource "aws_security_group" "terra_SG" {
       from_port        = 80
       to_port          = 80
       protocol         = "tcp"
-      cidr_blocks      = ["0.0.0.0/0", aws_vpc.terra_vpc.cidr_block]
+      cidr_blocks      = ["0.0.0.0/0"]
       ipv6_cidr_blocks  = []
       prefix_list_ids   = []
       security_groups   = []
@@ -83,7 +99,7 @@ resource "aws_security_group" "terra_SG" {
       from_port        = 22
       to_port          = 22
       protocol         = "tcp"
-      cidr_blocks      = ["0.0.0.0/0", aws_vpc.terra_vpc.cidr_block]
+      cidr_blocks      = ["0.0.0.0/0"]
       ipv6_cidr_blocks  = []
       prefix_list_ids   = []
       security_groups   = []
@@ -106,10 +122,9 @@ resource "aws_security_group" "terra_SG" {
   ]
 
   tags = {
-    name = "allow_web"
+    Name = "allow_web"
   }
 }
-
 
 # create a network interface with private ip from step 4
 resource "aws_network_interface" "terra_net_interface" {
@@ -119,18 +134,21 @@ resource "aws_network_interface" "terra_net_interface" {
 
 # assign a elastic ip to the network interface created in step 7
 resource "aws_eip" "terra_eip" {
-  vpc = true
   network_interface = aws_network_interface.terra_net_interface.id
   associate_with_private_ip = aws_network_interface.terra_net_interface.private_ip
   depends_on = [aws_internet_gateway.terra_IGW, aws_instance.terra_ec2]
+
+  tags = {
+    Name = "terra_eip"
+  }
 }
 
 # create an ubuntu server and install/enable apache2
 resource "aws_instance" "terra_ec2" {
-  ami = var.ami
+  ami           = data.aws_ami.amazon_linux.id  # Using data source instead of var.ami
   instance_type = var.instance_type
   availability_zone = var.availability_zone
-  key_name = "ec2_key"
+  key_name = var.key_name  # Make this a variable instead of hardcoded
   
   network_interface {
     device_index = 0
@@ -140,6 +158,6 @@ resource "aws_instance" "terra_ec2" {
   user_data = file("${path.module}/user_data.sh")
   
   tags = {
-    name = "web_server"
+    Name = "web_server"
   }
 }
